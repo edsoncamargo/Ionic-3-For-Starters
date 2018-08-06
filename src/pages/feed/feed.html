@@ -6,34 +6,34 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-card class="feed-card">
 
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/Logo Hunter.jpg">
       </ion-avatar>
-      <h2>{{ userName }}</h2>
+      <h2>{{ feed.title }}</h2>
       <p class="feed-date">{{currentDate | date:'dd/MM/yyyy - HH:mm'}}</p>
     </ion-item>
 
     <img src="assets/imgs/Santos.png">
 
     <ion-card-content>
-      <p>The Santos Futebol Clube is very bad, but I believe that Santos can win!</p>
+      <p>{{ feed.description }}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button (click)="buttonLikes()" ion-button icon-start clear small>
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{ contLikes }} Likes</div>
+          <div>{{ contLikes }} likes</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
+          <div>4 comments</div>
         </button>
       </ion-col>
       <ion-col center text-center>
