@@ -4,17 +4,35 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IntroductionPage } from './../pages/introduction/introduction';
+import { TabsPage } from './../pages/tabs/tabs';
+
+import { Configurations } from './../models/configurations';
+
+import { ConfigProvider } from './../providers/config/config';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    ConfigProvider
+  ]
 })
 export class MyApp {
-  rootPage:any = IntroductionPage;
+  rootPage: any = IntroductionPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    cp: ConfigProvider) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+
+      let config: Configurations = cp.getConfig();
+      if (config == null) {
+        this.rootPage = IntroductionPage;
+        cp.setConfig(false);
+      } else {
+        this.rootPage = TabsPage;
+      }
+
       statusBar.styleDefault();
       splashScreen.hide();
     });

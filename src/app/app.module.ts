@@ -12,7 +12,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroductionPageModule } from './../pages/introduction/introduction.module';
+import { ConfigurationsPageModule } from '../pages/configurations/configurations.module';
+import { ProfilePageModule } from './../pages/profile/profile.module';
+import { AboutPageModule } from './../pages/about/about.module';
+
 import { MovieProvider } from '../providers/movie/movie';
+import { StorageProvider } from '../providers/storage/storage';
+import { ConfigProvider } from '../providers/config/config';
 
 @NgModule({
   declarations: [
@@ -23,9 +29,12 @@ import { MovieProvider } from '../providers/movie/movie';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
     FeedPageModule,
     IntroductionPageModule,
-    HttpModule
+    ConfigurationsPageModule,
+    ProfilePageModule,
+    AboutPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +46,9 @@ import { MovieProvider } from '../providers/movie/movie';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    MovieProvider
+    MovieProvider,
+    StorageProvider,
+    ConfigProvider
   ]
 })
 
