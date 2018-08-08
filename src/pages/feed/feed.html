@@ -7,20 +7,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="feed-card">
+  <ion-card *ngFor="let movie of listMovies" class="feed-card">
 
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/Logo Hunter.jpg">
       </ion-avatar>
-      <h2>{{ feed.title }}</h2>
-      <p class="feed-date">{{currentDate | date:'dd/MM/yyyy - HH:mm'}}</p>
+      <h2>{{ movie.original_title }}</h2>
+      <p class="feed-date">{{ movie.release_date }}</p>
     </ion-item>
 
-    <img src="assets/imgs/Santos.png">
+    <img [src]="urlMovie + movie.backdrop_path">
 
     <ion-card-content>
-      <p>{{ feed.description }}</p>
+      <p>{{ movie.overview }}</p>
     </ion-card-content>
 
     <ion-row>
