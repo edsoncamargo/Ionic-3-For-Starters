@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MOVIE DETAILS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="movie">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/Logo Hunter.jpg">
+      </ion-avatar>
+      <h2>{{ movie.original_title }}</h2>
+      <p class="feed-date">{{ movie.release_date }}</p>
+    </ion-item>
+
+    <div>
+      <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.backdrop_path">
+    </div>
+
+    <ion-card-content>
+      <p>{{ movie.overview }}</p>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

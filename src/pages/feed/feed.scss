@@ -1,7 +1,15 @@
 page-feed {
-    .feed-date{
+    .feed-date {
         color: lightslategray;
         font-weight: 300;
         font-size: 12px;
+        max-width: 100%;
+        height: auto;
+    }
+    .text-overflow {
+        max-width: 50ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
