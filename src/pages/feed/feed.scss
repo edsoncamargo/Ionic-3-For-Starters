@@ -1,12 +1,18 @@
 page-feed {
+    .feed-title {
+        color: lightblue;
+        font-weight: 500;
+    }
     .feed-date {
-        color: lightslategray;
-        font-weight: 300;
+        color: white;
+        font-weight: 150;
         font-size: 12px;
         max-width: 100%;
         height: auto;
+        float: right;
     }
     .text-overflow {
+        color: lightblue;
         max-width: 50ch;
         overflow: hidden;
         text-overflow: ellipsis;

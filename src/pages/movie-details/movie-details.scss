@@ -1,7 +1,17 @@
 page-movie-details {
-    .feed-date{
-        color: lightslategray;
-        font-weight: 300;
+    .details-title {
+        color: lightblue;
+        font-weight: 500;
+    }
+    .details-date {
+        color: white;
+        font-weight: 150;
         font-size: 12px;
+        max-width: 100%;
+        height: auto;
+        float: right;
+    }
+    .details-content {
+        color: lightblue;
     }
 }
