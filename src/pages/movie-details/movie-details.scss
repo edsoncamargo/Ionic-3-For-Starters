@@ -1,9 +1,9 @@
-page-feed {
-    .feed-title {
+page-movie-details {
+    .details-title {
         color: lightblue;
         font-weight: 500;
     }
-    .feed-date {
+    .details-date {
         color: white;
         font-weight: 150;
         font-size: 12px;
@@ -11,11 +11,7 @@ page-feed {
         height: auto;
         float: right;
     }
-    .text-overflow {
+    .details-content {
         color: lightblue;
-        max-width: 50ch;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
     }
 }

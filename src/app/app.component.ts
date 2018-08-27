@@ -33,8 +33,10 @@ export class MyApp {
         this.rootPage = TabsPage;
       }
 
-      statusBar.styleDefault();
-      splashScreen.hide();
+      if (platform.is("cordova")) {
+        statusBar.styleDefault();
+        splashScreen.hide();
+      }
     });
   }
 }

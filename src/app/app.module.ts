@@ -15,6 +15,7 @@ import { IntroductionPageModule } from './../pages/introduction/introduction.mod
 import { ConfigurationsPageModule } from '../pages/configurations/configurations.module';
 import { ProfilePageModule } from './../pages/profile/profile.module';
 import { AboutPageModule } from './../pages/about/about.module';
+import { MovieDetailsPageModule } from './../pages/movie-details/movie-details.module';
 
 import { MovieProvider } from '../providers/movie/movie';
 import { StorageProvider } from '../providers/storage/storage';
@@ -34,7 +35,8 @@ import { ConfigProvider } from '../providers/config/config';
     IntroductionPageModule,
     ConfigurationsPageModule,
     ProfilePageModule,
-    AboutPageModule
+    AboutPageModule,
+    MovieDetailsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

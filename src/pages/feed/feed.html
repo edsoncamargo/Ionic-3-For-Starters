@@ -1,47 +1,39 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Feed</ion-title>
+    <ion-title>FEED</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let movie of listMovies" class="feed-card">
 
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/imgs/Logo Hunter.jpg">
-      </ion-avatar>
-      <h2>{{ movie.original_title }}</h2>
-      <p class="feed-date">{{ movie.release_date }}</p>
-    </ion-item>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-    <img [src]="urlMovie + movie.backdrop_path">
+  <div *ngFor="let movie of listMovies">
+    <ion-card *ngIf="movie.overview" (click)="getMovieDetails(movie)" class="feed-card">
 
-    <ion-card-content>
-      <p>{{ movie.overview }}</p>
-    </ion-card-content>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/Logo Hunter.jpg">
+        </ion-avatar>
+        <h2 class="feed-title">{{ movie.title }}</h2>
+        <p class="feed-date">{{ movie.release_date }}</p>
+      </ion-item>
 
-    <ion-row>
-      <ion-col>
-        <button (click)="buttonLikes()" ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{ contLikes }} likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4 comments</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          11h ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
+      <div *ngIf="movie.backdrop_path">
+        <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.backdrop_path">
+      </div>
 
-  </ion-card>
+      <ion-card-content class="feed-content">
+        <p class="text-overflow">{{ movie.overview }}</p>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

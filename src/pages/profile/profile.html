@@ -1,16 +1,20 @@
 <ion-header>
-
   <ion-navbar>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-
     <ion-title>PROFILE</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-item>
+        <ion-avatar item-start>
+          <img (click)="takePicture()" *ngIf="!img" src="../../assets/imgs/no-image.png" alt="">
+          <img (click)="takePicture()" *ngIf="img" [src]="img">
+        </ion-avatar>
+        <h2>Marty McFly</h2>
+        <p>November 5, 1955</p>
+      </ion-item>
 </ion-content>
